@@ -5,7 +5,7 @@ const comparePassword = require('../utils/common/checkPassword');
 const db = require('../db/connection');
 
 
-
+    
 
 app.post('/userLogin',(req,res)=>{
 
@@ -13,11 +13,11 @@ app.post('/userLogin',(req,res)=>{
     let password = req.body.password;
     var responseObject
     var arr = [];
-
+    
     (async()=>{
 
         try{
-            
+        console.log(email)    
         const beforeSnapshot =  db.ref('/users').orderByChild("email").equalTo(`${email}`)
         const snapshot = await beforeSnapshot.once("value");
         var stringifiedSnapshot = JSON.stringify(snapshot)

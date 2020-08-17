@@ -12,6 +12,11 @@ const config = {
     mailer:{
         authUser:process.env.MAILER_AUTH_USER,
         authPass:process.env.MAILER_AUTH_PASS
+    },
+    jdoodle:{
+        requestUrl:process.env.JDOODLE_REQUEST_URL,
+        clientId:process.env.JDOODLE_CLIENT_ID,
+        clientSecret:process.env.JDOODLE_CLIENT_SECRET
     }    
       
 }

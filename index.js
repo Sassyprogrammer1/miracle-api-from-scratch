@@ -4,18 +4,17 @@ const app = express();
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 
-
-app.use(bodyParser.json({limit: '5mb', extended: true}));
-app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
-routes(app);
 app.options('*', cors())
-
-    app.use(function(req, res, next) {
+app.use(function(req, res, next) {
  	res.header("Access-Control-Allow-Origin", "*");
  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
  });
+app.use(bodyParser.json({limit: '5mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
+routes(app);
 
+ 
 
 
 
