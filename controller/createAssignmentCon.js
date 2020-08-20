@@ -12,17 +12,16 @@ app.post('/createAssignment', (req,res)=>{
     (async()=>{
         try{
             
-            let assignmentName = req.body.name;
-            let assignmentQuestion = req.body.question; 
-            let userId = req.body.id;    
+            let assignmentTitle = req.body.assignmentTitle;
+            let assignmentQuestion = req.body.assignmentQuestion;     
             let createDate = date();
             let createdAt = createDate;
             let activationDate = req.body.activation;
             let expirationDate = req.body.expiration;
             
-
-            var userobj = {assignmentName:assignmentName,assignmentQuestion:assignmentQuestion,userId:userId,activationDate:activationDate,expirationDate:expirationDate,createdAt:createdAt}
+            var userobj = {assignmentTitle:assignmentTitle,assignmentQuestion:assignmentQuestion,activationDate:activationDate,expirationDate:expirationDate,createdAt:createdAt}
             var insert = await db.ref('/assignments').push(userobj);
+            
             responseObject = {
                 response:{"message":"Assignment published!","document":insert,"status":200},
                 }
